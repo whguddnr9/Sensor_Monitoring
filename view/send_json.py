@@ -103,7 +103,7 @@ def send_temp_test():
 
     test_json = json.dumps(row)
 
-    print("send_temp Data:",row)
+    print("send_temp Data:", row)
 
     return row
 ### Test send Json All DB data
@@ -111,7 +111,7 @@ def send_all_test():
 
     db_class    = dbModule.Database()
 
-    sql         = "select dateTime, temperature, humidity, soil_humidity from sensor_data_table;"
+    sql         = "select dateTime, temperature, humidity, soil_humidity from sensor_data_table ORDER BY meta_time DESC;"
     row         = db_class.executeAll(sql)
 
     test_json = json.dumps(row)
@@ -130,7 +130,7 @@ def send_5_test():
 
     test_json = json.dumps(row)
 
-    print("send_temp Data:",test_json)
+    print("send_temp Data:", test_json)
     # print("send_all_test 실행 됨")
     return test_json
 
