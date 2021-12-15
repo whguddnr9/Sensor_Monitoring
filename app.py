@@ -14,21 +14,13 @@ def hello():
     return 'helloworld'
 
 
-@app.route('/chart')
-def chart():
-    return render_template('test_chart.html')
 
-
+@app.route('/chart1')
+def chart1():
+    return render_template('test_chart4.html')
 @app.route('/chart2')
 def chart2():
-    return render_template('test_chart2.html')
-
-@app.route('/chart3')
-def chart3():
-    return render_template('test_chart3.html')
-@app.route('/chart4')
-def chart4():
-    return render_template('test_chart4.html')
+    return render_template('user2_chart.html')
 @app.route('/table')
 def table_show():
     return render_template('test_table.html')
@@ -43,11 +35,26 @@ def table():
     # print("DATA:", data)
     return response
 
+@app.route('/live-table2')
+def table2():
+    response = make_response(send_json.send_5_test2())
+    print("전부 보냈다.")
+    response.content_type = 'application/json'
+    # print("DATA:", data)
+    return response
 
 @app.route('/live-table-all')
 def table_all():
     response = make_response(send_json.send_all_test())
     print("전부 보냈다.")
+    response.content_type = 'application/json'
+    # print("DATA:", data)
+    return response
+
+@app.route('/live-all')
+def live_all():
+    response = make_response(send_json.send_temp())
+    print("1번2번 temp보냈다")
     response.content_type = 'application/json'
     # print("DATA:", data)
     return response
@@ -81,6 +88,14 @@ def live_data3():
 @app.route('/live-data4')
 def live_data4():
     response = make_response(send_json.send_temp_test())
+    print("temp보냈다")
+    response.content_type = 'application/json'
+    # print("DATA:", data)
+    return response
+
+@app.route('/live-data5')
+def live_data5():
+    response = make_response(send_json.send_temp_test2())
     print("temp보냈다")
     response.content_type = 'application/json'
     # print("DATA:", data)

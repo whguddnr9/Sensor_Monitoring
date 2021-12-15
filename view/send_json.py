@@ -106,6 +106,39 @@ def send_temp_test():
     print("send_temp Data:", row)
 
     return row
+
+### Test send Json not listing task
+def send_temp_test2():
+
+    db_class    = dbModule.Database()
+
+    sql         = "select meta_time, temperature, humidity, soil_humidity from sensor_data_table2;"
+    row         = db_class.executeOne(sql)
+
+    test_json = json.dumps(row)
+
+    print("send_temp Data:", row)
+
+    return row
+### send temp user1,user2
+def send_temp1_2():
+
+    db_class    = dbModule.Database()
+
+    sql         = "select meta_time, temperature, humidity, soil_humidity from sensor_data_table;"
+    row1         = db_class.executeOne(sql)
+
+    sql         = "select meta_time, temperature, humidity, soil_humidity from sensor_data_table2;"
+    row2         = db_class.executeOne(sql)
+
+    test_json = json.dumps(row1+row2)
+
+
+
+    print("send_temp Data:", test_json)
+
+    return test_json
+
 ### Test send Json All DB data
 def send_all_test():
 
@@ -134,9 +167,23 @@ def send_5_test():
     # print("send_all_test 실행 됨")
     return test_json
 
+### Test send Json 5 DB data2
+def send_5_test2():
+
+    db_class    = dbModule.Database()
+
+    sql         = "select dateTime, temperature, humidity, soil_humidity from sensor_data_table2 ORDER BY meta_time DESC LIMIT 5;"
+    row         = db_class.executeAll(sql)
+
+    test_json = json.dumps(row)
+
+    print("send_temp Data:", test_json)
+    # print("send_all_test 실행 됨")
+    return test_json
+
 ####
 
-
+send_temp1_2()
 # temp_test = send_one_time()
 # print("print send one time", temp_test)
 
