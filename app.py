@@ -102,7 +102,13 @@ def live_data5():
     return response
 
 #############################
+@app.route('/live-json', methods=['POST'])
+def ardujson():
+    print(request.is_json)
+    params =request.get_json()
+    print(params)
 
+#############################
 
 # @app.route('/graph')
 # def graph():

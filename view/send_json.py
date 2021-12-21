@@ -183,7 +183,7 @@ def send_5_test2():
 
 ####
 
-send_temp1_2()
+# send_temp1_2()
 # temp_test = send_one_time()
 # print("print send one time", temp_test)
 
